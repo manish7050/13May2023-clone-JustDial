@@ -1,0 +1,42 @@
+body {
+    background-color: #e8e8e8;
+}
+.d_tbdr {
+    border: red dashed 2px;
+}
+.d_cont {
+    min-height: 5000px;
+}
+header{
+    height: 81px;
+    width: 92%;
+    margin: auto;
+}
+main {
+height: 3119px;
+top: 81px;
+}
+.mt-5.d_mt-5 {
+    margin-top: 5rem!important;
+}
+footer{ }
+.d_ftr1 {
+    height: 112px;
+}
+.d_ftr2 {
+    height: 1291px;
+}
+.d_ftr3 {
+    height: 300px;
+}
+.d_ftr4 {
+    height: 97px;
+}
+
+
+
+@media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1438px;
+    }
+}
