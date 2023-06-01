@@ -1,39 +1,862 @@
-
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Justdial - Local Search, Social, News, Videos, Shopping</title>
+        <link rel="shortcut icon" href="https://static.127777.com/tools/img/favicon.ico" type="image/x-icon">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustDial</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/main.css" />
-</head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+        <link href="./css/style.css" rel="stylesheet" >
+    </head>
+    <body>
+        <!-- Modal -->
+        <button class="btn a_scrollToTop bg-light rounded-circle position-fixed bottom-0 end-0" style="bottom:36px !important;right:10px !important;">
+            <i class="fa-solid fa-chevron-up fa-lg"></i>
+        </button>
 
-</head>
-
-<body>
-    <div class="container d_cont d_tbdr bg-white">
-        <header class="d_tbdr bg-white fixed-top">
-            header
-        </header>
-        <main class="d_tbdr bg-success mt-5 d_mt-5">
-            main
-        </main>
-        <footer class="bg-warning">
-            <div class="d_1">
-                <div class="d_ftr1 border-top border-top">Footer 1</div>
-                <div class="d_ftr2 border-top border-bottom">Footer 2</div>
-                <div class="d_ftr3 border-top border-top">Footer 3</div>
-                <div class="d_ftr4 border-top border-top">Footer 4</div>
+        <div class="modal hide" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-body p-0 ">
+                        <div class="d-none">
+                            <div class="clearfix">
+                                <div class="float-start ms-3">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>                           
+                            <div class="row m-0">
+                                <div class="col">
+                                    <a class="btn text-body-tertiary fw-bold" href="#">Sign In</a>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#">
+                                        <img alt="" class="w-25 img-fluid me-3" src="./img/profiledefault.png" >
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-outline-secondary rounded-pill ms-3 me-3">Saved</button>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill me-3">Faviories</button>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill me-3">Intrests</button>
+                            </div>
+                            <ul class="nav flex-column mt-4">
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link active text-body-tertiary" aria-current="page" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" >English</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"> <img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > Feedback</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"> <img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > Customer Service</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"> <img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > List your Business <img alt="" class="img-fluid" style="height:25px" src="https://akam.cdn.jdmagicbox.com/images/icons/gif/freeanimation2x" ></a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" > My Transcation</a>
+                                </li>
+                                <li class="nav-item mt-2 mb-2">
+                                    <a class="nav-link text-body-tertiary" href="#"><img alt="" class="img-fluid me-3" src="./img/Languageicn.svg" >Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-block">
+                            <button class="btn position-absolute top-0 end-0 text-white me-3 mt-3  rounded-4 pt-1 pb-1" style="background-color: rgba(0, 0, 0, 0.3);"  data-bs-dismiss="modal">Skip </button>
+                            <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/newprot_w/login_banner_28mar.png" >
+                            <form class="bg-white p-5 rounded-5 rounded-bottom-0 position-relative" style="top:-15px">
+                                <div class="mb-3 text-center">
+                                  <h4>India′s # 1 Local Search Engine</h4>
+                                </div>
+                                <div class="mb-3 border rounded">
+                                    <div class="row m-0">
+                                        <div class="col-2 p-0"> <button class="btn">+91</button> </div>
+                                        <div class="col-10 p-0">
+                                            <input type="text" class="form-control shadow-none border-0" placeholder="Mobile Number" id="exampleInputPassword1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary disabled pt-2 pb-2 fs-5" type="button">Login with OTP</button>
+                                </div>
+                                <div class="d-grid gap-2 mt-3">
+                                    <button class="btn btn-white disabled pt-2 pb-2 fs-5 border border-light-subtle " type="button"><span class="text-dark">Truecaller</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal pt-5" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mt-5" style="top:100px !important">
+                <div class="modal-content p-4">
+                    <div class="modal-header border border-0">
+                        <div class="row m-0 w-100">
+                            <div class="col-3 p-0 pe-3 d-flex align-items-center">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jdlogosvg.svg" >
+                            </div>
+                            <div class="col-8 p-0">
+                                <div class="ps-3 border-start">
+                                    <h1 class="modal-title fs-4 fw-bold" id="exampleModalLabel">Welcome</h1>
+                                    <p class="m-0">Login for seamless experience </p>
+                                </div>
+                            </div>
+                            <div class="col-1 p-0">
+                                <button type="button" class="btn btn-light rounded-circle btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <div class="row pb-2 m-0 border-2 border-bottom">
+                                    <div class="col-1 p-0 d-flex align-items-center">
+                                        <label for="exampleInputEmail1" class="form-label m-0 text-dark fw-bold">+91</label>
+                                    </div>
+                                    <div class="col-11 p-0">
+                                        <input type="text" class="form-control rounded-0 border-2 border-0 border-start shadow-none" id="exampleInputEmail1" placeholder="Mobile Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-lg btn-primary ps-5 pe-5" disabled>Login with OTP</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" class="btn btn-lg btn-outline-secondary rounded-pill" data-bs-dismiss="modal">
+                            <img alt="" class="img-fluid me-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/jdservice/mjw_googleicn.svg" >Google</button>
+                        <button type="button" class="btn btn-lg btn-outline-secondary rounded-pill">
+                            <img alt="" class="img-fluid me-3" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/fbicn.svg" >Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-</body>
+        <div class="container ps-0 pe-0 bg-white a_cont a_tbdr">
+            <header class="border-bottom position-sticky top-0 a_tbdr bg-white">
+                <div class="row m-0 h-100">
+                    <div class="col-4 col-sm-2 a_form_col a_tbdr">
+                        <a href="#" class="d-flex align-items-center d-block h-100">
+                            <img alt="" class="img-fluid mt-2" src="./img/logo.svg" >
+                        </a>
+                    </div>
+                    <div class="col-8 col-sm-3 a_form_col a_tbdr d-block d-sm-none">
+                        <div class="d-block d-sm-none">
+                            <ul class="nav float-end  mt-2  a_tnr">
+                                <li class="nav-item">
+                                  <a class="nav-link active bg-primary text-white rounded-pill pt-1 pb-1" aria-current="page" href="#">Open App</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mt-1 pt-0 pb-0" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-bell text-dark"></i>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mt-1 pt-0 pb-0" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+                                    <i class="fa-solid fa-bars text-dark"></i>
+                                  </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="a_headerright clearfix col-12 col-sm-10 pt-2 ps-3 pe-3" >   
+                        <div class="">                            
+                            <form class=" d-sm-none d-md-none border mb-2 pt-0 pb-0 border-dark-subtle rounded-3 p-1 ">
+                                <div class="row ">
+                                    <div class="col-1 p-0 ">
+                                        <button class="btn ms-1">
+                                            <i class="fa-solid fa-magnifying-glass text-body-tertiary"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-9 p-0">
+                                        <input type="search" placeholder="Packers and movers" class="form-control shadow-none border border-0" id="exampleInputPassword2">
+                                    </div>
+                                    <div class="col-2 p-0">
+                                        <button type="submit" class="btn float-end">
+                                            <img alt="" src="./img/mic.svg" >
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="d-none d-sm-block a_tbdr float-end">
+    
+                                <ul class=" nav mt-3 ms-3 a_menu ">
+                                    <li class="nav-item">
+                                        <a class="ps-2 pt-1 pb-1 pe-2 nav-link active" aria-current="page" href="#">
+                                            <img alt="" src="./img/nav_language_icon.svg" > English
+                                            <img alt="" src="./img/down_arrow5.svg" > 
+                                        </a>
+                                        <ul class="nav flex-column a_submenu bg-white list-unstyled border position-absolute">
+                                            <li class="nav-item">
+                                                <a href="#"  class="nav-link text-secondary-emphasis active ">Hindi</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#"  class="nav-link text-secondary-emphasis">English</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#"  class="nav-link text-secondary-emphasis">Marathi</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis" href="#">We are hiring</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis" href="#">Investor Relation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis"><img alt="" class="me-1" src="./img/nav_advertise_icon.svg" >Advertise</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis"><img alt="" src="./img/nav_listing_icon.svg" > Free Listing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis"><img alt="" src="./img/notify_icon.svg" ></a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a data-bs-toggle="modal" data-bs-target="#exampleModal2" class="ps-2 pt-1 pb-1 pe-2 nav-link text-secondary-emphasis"><img alt="" src="./img/jd_login_icon.svg" > Login/Sign-Up</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </header>
+            <main class="a_tbdr bg-white ps-5 pe-5 ">
+                <div class="a_m1 d-block d-sm-none">
+                    <div class="row m-0">
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm ">
+                                <img alt="" class="img-fluid d-block" src="./img/1.gif" >
+                                <span>B2B</span>
+                            </a>
+
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0 ">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/3.svg" >
+                                Travel
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/4.svg" >
+                                Beauty
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Interiors Designers
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Consultants
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Rent & Hire
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Wedding Requisites
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Home Services
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                        <div class="col-3 a_tbdr d-flex align-items-center p-0">
+                            <a href="#" class="btn btn-sm mx-auto text-center align-middle">
+                                <img alt="" class="img-fluid d-block" src="./img/2.svg" >
+                                Doctors
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <a href="#">
+                        <img alt="" class="img-fluid" src="./img/banner/list_your_business_14march.avif" >
+                    </a>
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    
+                    <div class="row m-0">
+
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/1/food.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/1/food.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/1/food.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/1/food.jpg?v=1" >
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <div class="row m-0">
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/realestate/explore2x.gif" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/realestate/postright2xnew.gif" >
+                            </a>
+                        </div>
+                    </div>                  
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn" href="#"><strong>Home Service</strong></a>
+                        </div>
+                        <div class="col text-end">
+                            <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/newprot_w/right-arrow-21.svg" >
+                        </div>
+                    </div>
+                    <div class="row m-0">
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1">
+                            <a href="#">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <a href="#">
+                        <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/new/Online_consultation_hm.gif" >
+                    </a>
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <div class="row">
+                        <div class="col">
+                                <a class="btn" href="#"><strong>Rent &amp; Hire</strong></a>
+                        </div>
+                        <div class="col text-end position-relative">
+                            <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/newprot_w/right-arrow-21.svg" >
+                            <span class="position-absolute bottom-0 start-0 ms-2 mb-2">HIRE VEHICALS</span>
+                        </div>
+                    </div>
+                    <div class="row m-0">
+                        <div class="col ps-1 pe-1 position-relative">
+                            <a href="#" class=" text-white">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/hirevehicles.jpg?v=1" >
+                                <span class="position-absolute bottom-0 start-0 ms-2 mb-2">HIRE VEHICALS</span>
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1 position-relative">
+                            <a href="#"  class=" text-white">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/rentclothes.jpg?v=1" >
+                                <span class="position-absolute bottom-0 start-0 ms-2 mb-2">HIRE VEHICALS</span>
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1 position-relative">
+                            <a href="#"  class=" text-white">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                                <span class="position-absolute bottom-0 start-0 ms-2 mb-2">HIRE VEHICALS</span>
+                            </a>
+                        </div>
+                        <div class="col ps-1 pe-1 position-relative">
+                            <a href="#"  class=" text-white">
+                                <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icons/android/newhome/2/acrepairservice.jpg?v=1" >
+                                <span class="position-absolute bottom-0 start-0 ms-2 mb-2">HIRE VEHICALS</span>
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="a_m2 d-block d-sm-none mt-2">
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn" href="#"><strong>Home Service</strong></a>
+                        </div>
+                        <div class="col text-end">
+                            <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/newprot_w/right-arrow-21.svg" >
+                        </div>
+                    </div>    
+                    <div class="">
+                       <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/realestate/realestate-t-8nov.jpg" >
+                       <div class="postion-absolute top-0 text-center">
+                            <div class="row m-0">
+                                <div class="col p-0 text-danger">BUY</div>
+                                <div class="col p-0 text-danger">SELL</div>
+                                <div class="col p-0 text-danger">RENT</div>
+                                <div class="col p-0 text-danger">PG</div>
+                            </div>
+                       </div> 
+                    </div>
+                  
+                </div>
+                <div class="a_m11 d-none d-sm-block a_tbdr">
+                    <div class="row h-100">
+                        <div class="col-8 a_tbdr h-100 ">
+                            <div class="row m-0">
+                                <div class="col-3 p-0">
+                                    <span class="fw-bold fs-3 text-dark">Search across</span>
+                                </div>
+                                <div class="col-9 p-0" style="height:50px;overflow:hidden">
+                                    <div class=" a_animation h-100">
+                                        <span class="d-block fw-bold fs-3 text-dark">‘3.4 Crore+ <span class="text-primary">Businesses</span></span>
+                                        <span class="d-block fw-bold fs-3 text-dark"> ‘2.8 Crore' + <span class="text-primary">Products & Services</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="">
+                                <div class="row m-0 a_tbdr">
+                                    <div class="col-4 a_tbdr">
+                                        <div class="p-2 d-flex flex-row align-items-center border border-dark rounded-2 a_city_input ">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <input type="text" class="form-control form-control-sm a_city_input a_city_input2 border-0  shadow-none" placeholder="Rejeev Nagar, Neemuch" aria-label="First name">
+                                        </div>
+                                    </div>
+                                    <div class="col-8 a_tbdr">
+                                        <div class="row m-0 border border-dark rounded-2">
+                                            <div class="col-9 p-0">
+                                                <input type="text" class="form-control border-0 shadow-none  pt-1 pb-1" placeholder="Search for expert service" aria-label="Last name">
+                                            </div>
+                                            <div class="col-3 p-0">
+                                                <div class="d-flex flex-row">
+                                                    <div class="p-1">
+                                                        <img alt="" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/jd_mic_icon.svg">
+                                                    </div>
+                                                    <div class="p-1">
+                                                        <button class="btn btn-sm a_orange" >
+
+                                                            <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/jd_mic_icon.svg">
+                                                        </button>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-4 a_tbdr h-100">
+                            <button class="text-dark border-dark btn btn-sm border position-relative float-end me-5 mt-5"><span class="fw-semibold">Download App</span> <img alt="" width="27" class="position-absolute border border-dark rounded-1 img-fluid bottom-0 bg-white" style="bottom:-10px !important" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/getapp_jd.gif" ></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="a_m22 d-none d-sm-block">
+                    <div class="row m-0 h-100">
+                        <div class="col-6 p-0 h-100 a_tbdr ">
+                            <div id="carouselExampleIndicators" class="carousel slide a_mainslider" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="rounded-circle"></button>
+                                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="rounded-circle"></button>
+                                </div>
+                                <div class="carousel-inner rounded-4">
+                                  <div class="carousel-item active"  data-bs-interval="3000">
+                                    <img alt=""  src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_webflight_23feb.png" class="img-fluid d-block w-100">
+                                  </div>
+                                  <div class="carousel-item"  data-bs-interval="3000">
+                                    <img alt="" height="275" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_CCTV.png" class="img-fluid d-block w-100">
+                                  </div>
+                                  <div class="carousel-item"  data-bs-interval="3000">
+                                    <img alt="" height="275" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_hotels.png?v=1.0" class="img-fluid d-block w-100">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev a_ccp top-50" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon w-50" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next a_ccn top-50" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon w-50" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="col-6 a_tbdr">
+                            <div class="row m-0 h-100">
+                                <div class="col-3 p-0 ps-2 pe-2 a_tbdr h-100">
+                                    <a href="#" class="overflow-hidden text-decoration-none d-block a_xyz rounded-4 position-relative p-2 h-100"  style="background:#0F7DD8">
+                                        <span class="d-block fw-bold fs-4 text-white">B2B</span>
+                                        <img alt="" class="img-fluid position-absolute bottom-0 end-0" src="https://akam.cdn.jdmagicbox.com/images/icons/website/newhome/1/b2b.png?v=1.01?w=1920&q=75" >
+                                        <div class="a_b2b shadow p-1 rounded-end  text-white position-absolute bottom-0 start-0" style="bottom:20px !important">Explore 
+                                            <i class="fa-lg d-inline-block h-100 fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 ps-2 pe-2 a_tbdr h-100">
+                                    <a href="#" class="overflow-hidden text-decoration-none d-block a_xyz rounded-4 position-relative p-2 h-100"  style="background:#0F7DD8">
+                                        <span class="d-block fw-bold fs-4 text-white">B2B</span>
+                                        <img alt="" class="img-fluid position-absolute bottom-0 end-0" src="https://akam.cdn.jdmagicbox.com/images/icons/website/newhome/1/b2b.png?v=1.01?w=1920&q=75" >
+                                        <div class="a_b2b shadow p-1 rounded-end  text-white position-absolute bottom-0 start-0" style="bottom:20px !important">Explore 
+                                            <i class="fa-lg d-inline-block h-100 fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 ps-2 pe-2 a_tbdr h-100">
+                                    <a href="#" class="overflow-hidden text-decoration-none d-block a_xyz rounded-4 position-relative p-2 h-100"  style="background:#0F7DD8">
+                                        <span class="d-block fw-bold fs-4 text-white">B2B</span>
+                                        <img alt="" class="img-fluid position-absolute bottom-0 end-0" src="https://akam.cdn.jdmagicbox.com/images/icons/website/newhome/1/b2b.png?v=1.01?w=1920&q=75" >
+                                        <div class="a_b2b shadow p-1 rounded-end  text-white position-absolute bottom-0 start-0" style="bottom:20px !important">Explore 
+                                            <i class="fa-lg d-inline-block h-100 fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 ps-2 pe-2 a_tbdr h-100">
+                                    <a href="#" class="overflow-hidden text-decoration-none d-block a_xyz rounded-4 position-relative p-2 h-100"  style="background:#0F7DD8">
+                                        <span class="d-block fw-bold fs-4 text-white">B2B</span>
+                                        <img alt="" class="img-fluid position-absolute bottom-0 end-0" src="https://akam.cdn.jdmagicbox.com/images/icons/website/newhome/1/b2b.png?v=1.01?w=1920&q=75" >
+                                        <div class="a_b2b shadow p-1 rounded-end  text-white position-absolute bottom-0 start-0" style="bottom:20px !important">Explore 
+                                            <i class="fa-lg d-inline-block h-100 fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a_m33 d-none d-sm-block pt-4 pb-4 a_tbdr">
+                    <ul class="nav a_m22_icon">
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/1.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/2.svg" >
+                            <span class="d-block">Hotels</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/3.svg" >
+                            <span class="d-block">Real Estate</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/4.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/5.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/6.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/7.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/8.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/9.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/10.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/11.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/12.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/13.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/14.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/15.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/16.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/17.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/18.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/19.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                          <a class="nav-link me-4 mb-5 text-dark text-center" aria-current="page" href="#">
+                            <img alt="" class="img-fluid border p-2 rounded-4" src="./img/icons/20.svg" >
+                            <span class="d-block">Restaurants</span>
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="a_m44 d-none d-sm-block a_tbdr mb-5">
+                    <div class="row m-0">
+                        <div class="col-6 a_tbdr">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold mb-4"><a href="#1" class="text-decoration-none text-dark">Wedding Requisites</a></h5>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="#2" class="text-decoration-none text-center text-dark">
+                                                <figure>
+                                                    <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75" >
+                                                    <figcaption>Banquet Halls</figcaption>
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#3" class="text-decoration-none text-center text-dark">
+                                                <figure>
+                                                    <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75" >
+                                                    <figcaption>Banquet Halls</figcaption>
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#3" class="text-decoration-none text-center text-dark">
+                                                <figure>
+                                                    <img alt="" class="img-fluid" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/hkim_banquethall.png?w=256&q=75" >
+                                                    <figcaption>Banquet Halls</figcaption>
+                                                </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a_m55 mb-5">
+                    <div class="card">
+                        <div class="card-header bg-transparent p-5">
+                          <div class="row m-0 a_tbdr">
+                            <div class="col-4 a_tbdr">1</div>
+                            <div class="col-8 a_tbdr">2</div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                         2
+                        </div>
+                      </div>
+                </div>
+            </main>
+            <footer class="a_tbdr bg-white">
+                <div class="d-block d-sm-none">
+                    <div class="row m-0 text-center">
+                        <div class="col p-0 a_tbdr">
+                            <a href="#" class="btn w-100 h-100 d-flex align-items-center justify-content-center">
+                                <img alt="" class="img-fluid" src="./img/home.svg" >
+                            </a>
+                        </div>
+                        <div class="col p-0 a_tbdr">
+                            <a href="#" class="btn w-100 h-100 d-flex align-items-center justify-content-center">
+                                <img alt="" class="img-fluid" src="./img/b2b-icn.svg" >
+                            </a>
+                        </div>
+                        <div class="col p-0 a_tbdr">
+                            <a href="#" class="btn w-100 h-100 d-flex align-items-center justify-content-center">
+                                <img alt="" class="img-fluid" src="./img/jdpay-icn.svg" >
+                            </a>
+                        </div>
+                        <div class="col p-0 a_tbdr">
+                            <a href="#" class="btn w-100 h-100 d-flex align-items-center justify-content-center">
+                                <img alt="" width="24" class="img-fluid" src="./img/newswbg.png" >
+                            </a>
+                        </div>
+                        <div class="col p-0 a_tbdr">
+                            <a href="#" class="btn w-100 h-100 d-flex align-items-center justify-content-center">
+                                <img alt=""  class="img-fluid" src="./img/ecmmore.svg" >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-none d-sm-block">
+                    <div class="a_footer1 border-top border-bottom">f1</div>
+                    <div class=" a_footer2">f2</div>
+                    <div class="border-top a_footer3">f3</div>
+                    <div class="border-top a_footer4">f4</div>
+                </div>
+                
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </body>
 </html>
